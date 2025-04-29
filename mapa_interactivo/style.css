@@ -1,24 +1,167 @@
-#tooltip {
-    position: absolute;
-    background: white;
-    padding: 1rem;
-    border-radius: 0.75rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    font-size: 0.9rem;
-    max-width: 300px;
-    z-index: 100;
-    display: none;
+/* ---------------------- Base -------------------------------------------- */
+:root {
+  --font-title: "Averia Sans Libre", sans-serif;
+  --font-subtitle: "PT Sans", sans-serif;
+  --font-text: "Rubik", sans-serif;
+
+  --red:    #d00000;
+  --sec:    #ebdbda;
+  --grayl:  #818181;
+  --grayd:  #222222;
+  --white:  #F4F4F4;
+  --text:   #141414;
+}
+
+body::selection {
+  background-color: var(--grayd);
+  color: white; 
+}
+
+body::-webkit-scrollbar { 
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: transparent; 
+}
+body::-webkit-scrollbar-thumb { 
+  background: #d0000088;
+  border-radius: 10px; 
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #d00000c4; 
+}
+
+*{
+  font-family: var(--font-text);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  box-sizing: border-box;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+}
+
+body { 
+  background: var(--white);
+}
+
+header, section, footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; 
+}
+
+.container-base {    
+  width: 1400px;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: 700;
+  font-family: var(--font-title);
+}
+
+.subtitle {
+  font-size: 1.6em;
+  font-family: var(--font-subtitle);
+}
+
+.text {
+  font-size: 1.05em;
+  font-family: var(--font-text);
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  header, section, footer { width: auto; }
+
+  .container-base {
+    width: 100%;
+    max-width: 600px;
+  } 
+
+  .title { font-size: 1.8em; }
+  .subtitle { font-size: 1.4em; }
+  .text { font-size: 1.05em; }
+}
+
+@media screen and (max-width: 480px) {
+  header, section, footer { width: auto; }
+
+  .container-base {
+    width: 100%;
+    max-width: 345px;
   }
+
+  .title { font-size: 1.6em; }
+  .subtitle { font-size: 1.2em; }
+  .text { font-size: 1em; }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  z-index: 50;
+  overflow: visible;
+}
+
+.footer{
+  background: #111;
+  height: 245px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.map {
+  margin-top: 60px;
+  padding: 30px 0;
+  overflow: visible;
+}
+
+.map .container-base {
+  position: relative;
+  transition: 5s ease-in-out;
+}
+
+.map .container-base .tooltip {
+  position: absolute;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+  max-width: 300px;
+  z-index: 51;
+  width: 230px;
+  height: auto;
+  min-height: 120px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
   
-  #map-container {
-    position: relative;
-    margin: 2rem auto;
-    max-width: 1000px;
-  }
-  
-  body {
-    margin: 0;
-    background: #eef2f5;
-    font-family: sans-serif;
-  }
-  
+}
